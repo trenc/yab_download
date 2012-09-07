@@ -1,0 +1,122 @@
+h1. yab_download
+
+This plugin allows you to offer a download of multiple files (per file id and/or category) with or without a confirmation button. Additional you can offer an option to download all the files as zip archive on the fly. The names of the files are read from the files description. If no description is given the filenames are displayed.
+
+*Version:* 0.6
+
+h2. Table of contents
+
+# "Plugin requirements":#help-section01
+# "Tags":#help-section05
+# "Examples":#help-section09
+# "License":#help-section10
+# "Author contact":#help-section11
+
+h2(#help-section01). Plugin requirements
+
+yab_email’s minimum requirements:
+
+* Textpattern 4.x
+* PHP > 5.2.0 is recommended
+
+If you are running a PHP version 5.2.0 or above so the attribute @zip="1"@ will try to create the zip on harddisk instead in memory. If you have php 5.2.0 or above and you have problems with some restrictions like safe_mode, open_basedir etc., so try the attribute @zip="2"@. This will force the zip creation in memory.
+
+h2(#help-section05). Tags
+
+h3. yab_download
+
+This plugin has only one tag: @<txp:yab_download />@. You have to place it in an individual article.
+The following attributes are available:
+
+*files:* file id
+Default: __unset__
+The IDs of the files, which are for download (seperated by comma). If no files assigned with an ID an error message will displayed in the option field.
+
+*label1:* name
+Default: 
+Label for select.
+
+*label2:* name
+Default: 
+Label for confirmation checkbox.
+
+*label3:* name
+Default: 
+Label for the submit input.
+
+*label4:* name
+Default: 
+Label for zip download checkbox.
+
+*notice:* text
+Default: 
+Error notice, if confirmation is not set but required
+
+*size:* filesize unit (B, KB, MB, GB, PB)
+Default: 
+Display filesize additionally (values are B, KB, MB, GB, PB).
+
+*confirm:* boolean
+Default: __unset__
+Want an additional confirmation checkbox?
+
+*formid:* HTML id
+Default: yab_cd_download
+HTML id of the element form, used for anchor, if you use more than one <txp:yab_download /> in a single site, make different entries here.
+
+*cats:* categories, comma separated
+Default: 
+File categories you will add to download (seperated by comma). Will additional displayed with files from *files* attribute above.
+
+*exclude:* files IDs, comma separated
+Default: 
+IDs of the files you will exclude ffrom download. Does only work with *cats* attribute.
+
+*sort:* MySQL sort
+Default: description asc
+Sort the files from *cats* attribute.
+
+*zip:* integer (1 or 2)
+Default: __unset__
+Offers an checkbox with an option to download all offered files as zip instead.
+Value: '1' for zip creation.
+Value: '2' to force zip creation in memory.
+
+*zipname:* name
+Default: all.zip
+The name of the offered zip.
+
+*hidelist:* boolean
+Default: __unset__
+Hides the select list of the files, usefull if you offer only one file or offer many files zipped without a seletion.
+
+*hidezip:* boolean
+Default: __unset__
+Hides the zip checkbox (download as zip is forced). Useful if you offer only one file as zip or many files as zip wihtout a file selection. Can be combined with *hidelist*, so only a download button will be displayed.
+
+h2(#help-section09). Examples
+
+h3. Example 1 (simple)
+
+bc. <txp:yab_download files="1,2,3,4" />
+
+h3. Example 2 (full)
+
+The full example will show you a form with two checkboxes. First one offers an option to download all the files zipped. The second checkbox is a confirmation checkbox.
+The offered files will be the files with the file ID #1, #2, #3, #4 and all files of the categories category1 and category2. If in category1 or category2 a file with the file id #5 and #7 so these will be excluded from download. The zipped file will be named as archive.zip.
+
+bc. <txp:yab_download files="1,2,3,4" label1="Choose your download" label2="Accept Download at your own risk" label3="Klick here for download" label4="Yeah give me all as zip" notice="You have to accept the condition below" size="MB" formid="form-no-1" confirm="1" cats="category1, category2" exclude="5,7" sort="filename desc" zip="1" zipname="archive.zip" />
+
+h2(#help-section10). Licence
+
+This plugin is released under the GNU General Public License Version 2 and above
+
+* Version 2: "http://www.gnu.org/licenses/gpl-2.0.html":http://www.gnu.org/licenses/gpl-2.0.html
+* Version 3: "http://www.gnu.org/licenses/gpl-3.0.html":http://www.gnu.org/licenses/gpl-3.0.html
+
+h2(#help-section11). Author contact
+
+* "Plugin on author’s site":http://www.yablo.de/article/390/yab_download-tiny-textpattern-plugin-to-offer-downloads
+* "Plugin on GitHub":https://github.com/trenc/yab_download
+* "Plugin on textpattern forum":http://forum.textpattern.com/viewtopic.php?id=28990
+* "Plugin on textpattern.org":http://textpattern.org/plugins/1044/yab_download
