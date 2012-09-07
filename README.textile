@@ -33,27 +33,27 @@ Default: __unset__
 The IDs of the files, which are for download (seperated by comma). If no files assigned with an ID an error message will displayed in the option field.
 
 *label1:* name
-Default: 
+Default: Files
 Label for select.
 
 *label2:* name
-Default: 
+Default: Please accept this condition!
 Label for confirmation checkbox.
 
 *label3:* name
-Default: 
+Default: Download
 Label for the submit input.
 
 *label4:* name
-Default: 
+Default: Download all as ZIP instead
 Label for zip download checkbox.
 
 *notice:* text
-Default: 
+Default: You have to accept the condition below for download.
 Error notice, if confirmation is not set but required
 
 *size:* filesize unit (B, KB, MB, GB, PB)
-Default: 
+Default: __unset__
 Display filesize additionally (values are B, KB, MB, GB, PB).
 
 *confirm:* boolean
@@ -65,11 +65,11 @@ Default: yab_cd_download
 HTML id of the element form, used for anchor, if you use more than one <txp:yab_download /> in a single site, make different entries here.
 
 *cats:* categories, comma separated
-Default: 
+Default: __unset__
 File categories you will add to download (seperated by comma). Will additional displayed with files from *files* attribute above.
 
 *exclude:* files IDs, comma separated
-Default: 
+Default: __unset__
 IDs of the files you will exclude ffrom download. Does only work with *cats* attribute.
 
 *sort:* MySQL sort
@@ -105,7 +105,22 @@ h3. Example 2 (full)
 The full example will show you a form with two checkboxes. First one offers an option to download all the files zipped. The second checkbox is a confirmation checkbox.
 The offered files will be the files with the file ID #1, #2, #3, #4 and all files of the categories category1 and category2. If in category1 or category2 a file with the file id #5 and #7 so these will be excluded from download. The zipped file will be named as archive.zip.
 
-bc. <txp:yab_download files="1,2,3,4" label1="Choose your download" label2="Accept Download at your own risk" label3="Klick here for download" label4="Yeah give me all as zip" notice="You have to accept the condition below" size="MB" formid="form-no-1" confirm="1" cats="category1, category2" exclude="5,7" sort="filename desc" zip="1" zipname="archive.zip" />
+bc. <txp:yab_download
+	files="1,2,3,4"
+	label1="Choose your download"
+	label2="Accept Download at your own risk"
+	label3="Klick here for download"
+	label4="Yeah give me all as zip"
+	notice="You have to accept the condition below"
+	size="MB"
+	formid="form-no-1"
+	confirm="1"
+	cats="category1, category2"
+	exclude="5,7"
+	sort="filename desc"
+	zip="1"
+	zipname="archive.zip"
+/>
 
 h2(#help-section10). Licence
 
