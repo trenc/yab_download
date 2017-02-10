@@ -2,7 +2,7 @@ h1. yab_download
 
 This plugin allows you to offer a download of multiple files (per file id and/or category) with or without a confirmation button. Additional you can offer an option to download all the files as zip archive on the fly. The names of the files are read from the files description. If no description is given the filenames are displayed.
 
-*Version:* 0.6
+*Version:* 0.7
 
 h2. Table of contents
 
