@@ -17,7 +17,7 @@ $plugin['name'] = 'yab_download';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.6';
+$plugin['version'] = '0.7';
 $plugin['author'] = 'Tommy Schmucker';
 $plugin['author_uri'] = 'http://www.yablo.de/';
 $plugin['description'] = 'Allows you to offer a download of multiple files with or without a confirmation button and an option to zip all files on the fly.';
@@ -130,6 +130,11 @@ If you are running a php version 5.2.0 or above so the attribute @zip="1"@ will 
  * Version 3: http://www.gnu.org/licenses/gpl-3.0.html
  */
 
+if (class_exists('\Textpattern\Tag\Registry'))
+{
+	Txp::get('\Textpattern\Tag\Registry')
+		->register('yab_download');
+}
 
 /**
  *
